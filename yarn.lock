@@ -1590,6 +1590,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest-plugin-context@npm:^2":
+  version: 2.9.5
+  resolution: "@types/jest-plugin-context@npm:2.9.5"
+  dependencies:
+    "@types/jest": "*"
+  checksum: af078e46a4215549cfa0adcfdce8aaa437be1ab1108cd74863c69f38a9e98816c8decca5a638085c35d9ef388e7f08ac233796b9b5dfee99046af5c0373b2202
+  languageName: node
+  linkType: hard
+
 "@types/jest@npm:*, @types/jest@npm:^28.1.3":
   version: 28.1.3
   resolution: "@types/jest@npm:28.1.3"
@@ -3358,6 +3367,7 @@ __metadata:
     "@testing-library/react": ^13.3.0
     "@testing-library/react-hooks": ^8.0.1
     "@types/jest": ^28.1.3
+    "@types/jest-plugin-context": ^2
     "@types/node": 18.0.0
     "@types/react": 18.0.14
     "@types/react-dom": 18.0.5
@@ -3378,9 +3388,11 @@ __metadata:
     eslint-plugin-simple-import-sort: ^7.0.0
     eslint-plugin-testing-library: ^5.5.1
     eslint-plugin-unused-imports: ^2.0.0
+    given2: ^2.1.7
     husky: ^8.0.1
     jest: ^28.1.1
     jest-environment-jsdom: ^28.1.1
+    jest-plugin-context: ^2.9.0
     lint-staged: ^13.0.3
     next: ^12.2.2
     react: 18.2.0
@@ -4531,6 +4543,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"given2@npm:^2.1.7":
+  version: 2.1.7
+  resolution: "given2@npm:2.1.7"
+  checksum: 42ca68f48d2662c0ffc7eba0f9348834f86632b641f5c4c7a318ad4d6139a124f5f27fd842b8d5c66b5fcceba0d79e2b1d23933042606ed71500dccbb99efcd4
+  languageName: node
+  linkType: hard
+
 "glob-parent@npm:^5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
@@ -5506,6 +5525,15 @@ __metadata:
     "@jest/types": ^28.1.1
     "@types/node": "*"
   checksum: 285716d062bd9403830d9f5c90dc414a17495a4e31b82e7789806dac5ea924364fe308a1a8a3151f1055b87cf811e09fab2e2699e53be9972a2657883dd48614
+  languageName: node
+  linkType: hard
+
+"jest-plugin-context@npm:^2.9.0":
+  version: 2.9.0
+  resolution: "jest-plugin-context@npm:2.9.0"
+  peerDependencies:
+    jest: "*"
+  checksum: 508ff501f755a34adbd97abf38812b6a7feffeebd524d0f476b7f90624fac1ae9e4d1fc0f06bac765513e9634666823d9ec63067d7bbe38bd892303d52ed3a2a
   languageName: node
   linkType: hard
 

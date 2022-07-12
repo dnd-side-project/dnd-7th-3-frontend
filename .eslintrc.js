@@ -5,6 +5,10 @@ module.exports = {
     es2021: true,
     jest: true,
   },
+  globals: {
+    context: 'readonly',
+    given: 'readonly',
+  },
   ignorePatterns: [
     '.next/',
     'node_modules/',
