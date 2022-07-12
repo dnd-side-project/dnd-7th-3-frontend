@@ -1,5 +1,5 @@
 {
-  "*.{ts,tsx}": [
+  "*.{js,jsx,ts,tsx}": [
     "yarn lint",
     "yarn test:unit --findRelatedTests --passWithNoTests"
   ]
