@@ -29,7 +29,6 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:@next/next/recommended',
-    'plugin:storybook/recommended',
   ],
   overrides: [
     {
@@ -44,6 +43,14 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
       ],
       rules: {},
+    },
+    {
+      extends: ['plugin:storybook/recommended'],
+      files: ['**/*.stories.tsx'],
+      rules: {
+        'react/function-component-definition': 'off',
+        'react/jsx-props-no-spreading': 'off',
+      },
     },
   ],
   parser: '@typescript-eslint/parser',
@@ -119,12 +126,5 @@ module.exports = {
     'react/jsx-props-no-spreading': ['error', {
       exceptions: ['AppComponent'],
     }],
-    'react/function-component-definition': [
-      2,
-      {
-        namedComponents: 'arrow-function',
-        unnamedComponents: 'arrow-function',
-      },
-    ],
   },
 };
