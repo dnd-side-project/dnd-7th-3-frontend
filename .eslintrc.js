@@ -29,6 +29,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:@next/next/recommended',
+    'plugin:storybook/recommended',
   ],
   overrides: [
     {
@@ -118,5 +119,12 @@ module.exports = {
     'react/jsx-props-no-spreading': ['error', {
       exceptions: ['AppComponent'],
     }],
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
   },
 };
