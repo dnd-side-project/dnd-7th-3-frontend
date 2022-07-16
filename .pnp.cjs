@@ -65,6 +65,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:5.29.0"],\
             ["babel-loader", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:8.2.5"],\
             ["cypress", "npm:10.2.0"],\
+            ["emotion-normalize", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:11.0.1"],\
             ["eslint", "npm:8.18.0"],\
             ["eslint-config-airbnb", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:19.0.4"],\
             ["eslint-import-resolver-typescript", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:2.7.1"],\
@@ -13233,6 +13234,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:5.29.0"],\
             ["babel-loader", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:8.2.5"],\
             ["cypress", "npm:10.2.0"],\
+            ["emotion-normalize", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:11.0.1"],\
             ["eslint", "npm:8.18.0"],\
             ["eslint-config-airbnb", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:19.0.4"],\
             ["eslint-import-resolver-typescript", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:2.7.1"],\
@@ -13525,6 +13527,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/emojis-list-npm-3.0.0-7faa48e6fd-ddaaa02542.zip/node_modules/emojis-list/",\
           "packageDependencies": [\
             ["emojis-list", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["emotion-normalize", [\
+        ["npm:11.0.1", {\
+          "packageLocation": "./.yarn/cache/emotion-normalize-npm-11.0.1-b4905b7500-f33c6ac75e.zip/node_modules/emotion-normalize/",\
+          "packageDependencies": [\
+            ["emotion-normalize", "npm:11.0.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:11.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/emotion-normalize-virtual-f2a1ef200d/0/cache/emotion-normalize-npm-11.0.1-b4905b7500-f33c6ac75e.zip/node_modules/emotion-normalize/",\
+          "packageDependencies": [\
+            ["emotion-normalize", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:11.0.1"],\
+            ["@emotion/react", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:11.9.3"],\
+            ["@types/emotion__react", null],\
+            ["@types/react", "npm:18.0.14"],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@emotion/react",\
+            "@types/emotion__react",\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
