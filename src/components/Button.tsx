@@ -1,13 +1,13 @@
-import type { FC } from 'react';
-
-export interface ButtonProps{
-    text: string;
+interface ButtonProps {
+  text: string;
 }
 
-const Button:FC<ButtonProps> = ({ text }) => (
-  <button type="button">
-    <span>{text}</span>
-  </button>
-);
+function Button({ text }: ButtonProps) {
+  return (
+    <button type="button">
+      <span>{text}</span>
+    </button>
+  );
+}
 
 export default Button;
