@@ -34,6 +34,7 @@ jobs:
           config-file: cypress.config.js
           install-command: yarn install --immutable
           command-prefix: yarn dlx
+          start: yarn dev
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
