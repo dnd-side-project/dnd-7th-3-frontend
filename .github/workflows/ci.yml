@@ -8,7 +8,6 @@ on:
 
 jobs:
   continuous-integration:
-    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,18 +20,25 @@ jobs:
         run: yarn install --immutable
 
       - name: Check Lint
+        if: github.event_name != 'push'
         run: yarn lint
 
       - name: Check Unit Test
+        if: github.event_name != 'push'
         run: yarn test:unit
 
-      - name: Check e2e Test
-        uses: cypress-io/github-action@v2
-        with:
-          install: false
-          command: yarn test:e2e
+      - name: Run Cypress with Chrome
+        uses: cypress-io/github-action@v3.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        with:
+          browser: chrome
+          record: true
+          config-file: cypress.config.js
+          install-command: yarn install --immutable
+          command-prefix: yarn dlx
+          start: yarn dev
 
   set-codecov-test-coverage:
     runs-on: ubuntu-latest
