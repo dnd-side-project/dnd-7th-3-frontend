@@ -27,7 +27,7 @@ jobs:
         run: yarn test:unit
 
       - name: Run Cypress with Chrome
-        uses: cypress-io/github-action@v3.1.0
+        uses: cypress-io/github-action@v4.1.0
         with:
           browser: chrome
           record: true

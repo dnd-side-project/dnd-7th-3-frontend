@@ -16,6 +16,7 @@
     "test:coverage": "yarn test:unit --coverage",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
+    "cypress:record": "yarn cypress:run --record --key 56d69a16-c0d3-4740-8f5f-0d4d2cd4ebee",
     "test:e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
     "prepare": "husky install",
     "sb": "start-storybook -p 6006",
