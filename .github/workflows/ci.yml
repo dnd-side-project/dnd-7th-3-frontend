@@ -26,13 +26,17 @@ jobs:
       - name: Check Unit Test
         run: yarn test:unit
 
-      - name: Check e2e Test
-        uses: cypress-io/github-action@v2
+      - name: Run Cypress with Chrome
+        uses: cypress-io/github-action@v3.1.0
         with:
-          install: false
-          command: yarn test:e2e
+          browser: chrome
+          record: true
+          config-file: cypress.config.js
+          install-command: yarn install --immutable
+          command-prefix: yarn dlx
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
   set-codecov-test-coverage:
     runs-on: ubuntu-latest
