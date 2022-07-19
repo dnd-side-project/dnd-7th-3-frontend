@@ -29,7 +29,7 @@
 <table>
   <tr>
     <td align="center"><a href="https://github.com/saseungmin"><img src="./images/harang.jpeg" width="150x;" alt=""/><br /><p><b>Harang</b></p></a><small>⚛️ Front-End Developer</small></td>
-    <td align="center"><a href="https://github.com/jooseyoung"><img src="./images/jaemedev.jpeg" width="150px;" alt=""/><br /><p><b>이재준</b></p></a><small>⚛️ Front-End Developer</small></td>
+    <td align="center"><a href="https://github.com/JaeMeDev"><img src="./images/jaemedev.jpeg" width="150px;" alt=""/><br /><p><b>이재준</b></p></a><small>⚛️ Front-End Developer</small></td>
   </tr>
 </table>
 
