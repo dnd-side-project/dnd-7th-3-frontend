@@ -4,8 +4,8 @@
   <img src="https://img.shields.io/github/workflow/status/dnd-side-project/dnd-7th-3-frontend/CI?label=CI&logo=GitHub&style=flat-square" />
 </a>
 
-<a href="https://app.codecov.io/gh/dnd-side-project/dnd-7th-3-frontend">
-  <img src="https://codecov.io/gh/dnd-side-project/dnd-7th-3-frontend/branch/main/graph/badge.svg"/>
+<a href="https://codecov.io/gh/dnd-side-project/dnd-7th-3-frontend" > 
+ <img src="https://codecov.io/gh/dnd-side-project/dnd-7th-3-frontend/branch/main/graph/badge.svg?token=6UV72FV21R"/> 
 </a>
 
 <a href="https://dashboard.cypress.io/projects/uhy2cb/runs">
