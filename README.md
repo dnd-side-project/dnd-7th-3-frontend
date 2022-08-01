@@ -73,7 +73,7 @@
   <img src="https://img.shields.io/github/package-json/dependency-version/dnd-side-project/dnd-7th-3-frontend/react?logo=react&style=for-the-badge">
 </a>
 <a href="#">
-  <img src="https://img.shields.io/github/package-json/dependency-version/dnd-side-project/dnd-7th-3-frontend/react-query?logo=react-query&style=for-the-badge">
+  <img src="https://img.shields.io/github/package-json/dependency-version/dnd-side-project/dnd-7th-3-frontend/@tanstack/react-query?logo=react-query&style=for-the-badge">
 </a>
 <a href="#">
   <img src="https://img.shields.io/github/package-json/dependency-version/dnd-side-project/dnd-7th-3-frontend/recoil?style=for-the-badge">

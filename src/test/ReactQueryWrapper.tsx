@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { PropsWithChildren, ReactElement } from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function ReactQueryWrapper({ children }: PropsWithChildren): ReactElement {
   const queryClient = new QueryClient({
