@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
 
 import { ThemeProvider } from '@emotion/react';
+import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
