@@ -72,6 +72,8 @@ jobs:
       - name: Build
         if: steps.cache_built_packages.outputs.cache-hit == ''
         run: yarn build
+    outputs:
+      dependency_cache_key: ${{ needs.job_install_dependencies.outputs.dependency_cache_key }}
 
   job_continuous_integration:
     runs-on: ubuntu-latest
@@ -108,8 +110,7 @@ jobs:
           browser: chrome
           record: true
           config-file: cypress.config.js
-          install-command: yarn install --immutable
-          command-prefix: yarn dlx
+          install: false
           start: yarn dev
 
   job_codecov_test_coverage:
