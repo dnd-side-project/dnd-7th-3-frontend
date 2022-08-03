@@ -101,17 +101,20 @@ jobs:
         if: github.event_name != 'push'
         run: yarn test:unit
 
+      - name: Install cypress dependencies
+        run: yarn add cypress
+
       - name: Run Cypress with Chrome
         uses: cypress-io/github-action@v3.1.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         with:
           browser: chrome
           record: true
           config-file: cypress.config.js
           install: false
           start: yarn dev
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
   job_codecov_test_coverage:
     name: set codecov unit test coverage
