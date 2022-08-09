@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import FoodCategoryItem from '../FoodCategoryItem';
+import FoodCategoryItem from '../common/FoodCategoryItem';
 
 function FoodCategories() {
   const foodCategory: { emoji: string; name: string }[] = [
