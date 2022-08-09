@@ -126,5 +126,8 @@ module.exports = {
     'react/jsx-props-no-spreading': ['error', {
       exceptions: ['AppComponent'],
     }],
+    'react/require-default-props': [2, {
+      ignoreFunctionalComponents: true,
+    }],
   },
 };

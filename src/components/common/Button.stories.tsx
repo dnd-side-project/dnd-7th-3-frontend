@@ -9,7 +9,15 @@ type ButtonProps = typeof Button;
 export default {
   title: 'Components/Button',
   component: Button,
-} as ComponentMeta<ButtonProps>;
+  argTypes: {
+    disabled: {
+      control: { type: 'boolean' },
+    },
+    color: {
+      control: { type: 'select' },
+    },
+  },
+} as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<ButtonProps> = (
   args: ComponentProps<ButtonProps>,
@@ -18,5 +26,8 @@ const Template: ComponentStory<ButtonProps> = (
 export const Default = Template.bind({});
 
 Default.args = {
-  text: 'button',
+  children: 'Button',
+  color: 'orange',
+  borderRadius: 24.5,
+  disabled: false,
 };

@@ -7,7 +7,10 @@ export const setGlobalStyles = css`
   ${emotionNormalize}
 
   body {
+    font-family:'Apple SD Gothic', 'Noto Sans KR', '맑은고딕', sans-serif;
     box-sizing: border-box;
+    // TODO - 추후 변경
+    color: #9A9A9A;
   }
 
   a {
