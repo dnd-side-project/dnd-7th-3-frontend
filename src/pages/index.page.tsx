@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 import Button from '@/components/common/Button';
-import FoodCategories from '@/components/common/home/FoodCategories';
 import MobileWebLayout from '@/components/common/MobileWebLayout';
+import FoodCategories from '@/components/home/FoodCategories';
 
 import LocationIcon from '../assets/icons/location.svg';
 
