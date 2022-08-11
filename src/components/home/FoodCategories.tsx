@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 import styled from '@emotion/styled';
 
-import FoodCategoryItem from '../common/FoodCategoryItem';
+import FoodCategoryItem from './FoodCategoryItem';
 
 function FoodCategories() {
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
+
   const foodCategory: { emoji: string; name: string }[] = [
     { emoji: '🍚', name: '한식' },
     { emoji: '🍝', name: '양식' },
@@ -17,6 +19,8 @@ function FoodCategories() {
     { emoji: '🍧', name: '디저트' },
   ];
 
+  const onSelectedCategory = useCallback((name: string) => setSelectedCategory(name), []);
+
   return (
     <>
       <CategoryDescription>
@@ -26,6 +30,8 @@ function FoodCategories() {
         {foodCategory.map(({ emoji, name }) => (
           <FoodCategoryItem
             key={name}
+            isSelected={selectedCategory === name}
+            onSelected={onSelectedCategory}
             emoji={emoji}
             name={name}
           />
