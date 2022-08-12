@@ -43,6 +43,7 @@ const IndexPageLayout = styled(MobileWebLayout)`
     & > div:last-of-type {
       display: flex;
       justify-content: center;
+      margin-top: 54px;
       margin-bottom: 12px;
     }
   }

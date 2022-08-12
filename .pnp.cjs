@@ -95,6 +95,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-pwa", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:5.5.4"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:18.2.0"],\
+            ["react-input-range", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:1.3.0"],\
             ["react-spring", "npm:9.5.2"],\
             ["react-test-renderer", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:18.2.0"],\
             ["recoil", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:0.7.5"],\
@@ -10940,6 +10941,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["autobind-decorator", [\
+        ["npm:1.4.3", {\
+          "packageLocation": "./.yarn/cache/autobind-decorator-npm-1.4.3-38e3bb8af3-1902a58191.zip/node_modules/autobind-decorator/",\
+          "packageDependencies": [\
+            ["autobind-decorator", "npm:1.4.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["autoprefixer", [\
         ["npm:9.8.8", {\
           "packageLocation": "./.yarn/cache/autoprefixer-npm-9.8.8-516d6fbf3d-8f017672fb.zip/node_modules/autoprefixer/",\
@@ -13889,6 +13899,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next-pwa", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:5.5.4"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:18.2.0"],\
+            ["react-input-range", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:1.3.0"],\
             ["react-spring", "npm:9.5.2"],\
             ["react-test-renderer", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:18.2.0"],\
             ["recoil", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:0.7.5"],\
@@ -22421,6 +22432,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "packagePeers": [\
             "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-input-range", [\
+        ["npm:1.3.0", {\
+          "packageLocation": "./.yarn/cache/react-input-range-npm-1.3.0-6f7f7e5c5e-333f44c1a8.zip/node_modules/react-input-range/",\
+          "packageDependencies": [\
+            ["react-input-range", "npm:1.3.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:1.3.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-input-range-virtual-7dff38dd88/0/cache/react-input-range-npm-1.3.0-6f7f7e5c5e-333f44c1a8.zip/node_modules/react-input-range/",\
+          "packageDependencies": [\
+            ["react-input-range", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:1.3.0"],\
+            ["@types/react", "npm:18.0.14"],\
+            ["@types/react-dom", "npm:18.0.5"],\
+            ["autobind-decorator", "npm:1.4.3"],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:ee8bcbed5603d25ce23afc1c8b86960f5084f5ec961d683a8d58080421c511a25a454593c1eb875ab6bb10253ae60879c09b0b1e71b751797477ff83da8028b8#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
             "react"\
           ],\
           "linkType": "HARD"\
