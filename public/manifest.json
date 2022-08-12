@@ -1,0 +1,35 @@
+{
+  "name": "2차갈래",
+  "short_name": "2차갈래",
+  "description": "2차를 빠르게 찾게 도와주는 플랫폼 2차갈래",
+  "icons": [
+    {
+      "src": "images/icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/maskable_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "images/maskable_icon_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#EB4F27",
+  "orientation": "portrait",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#EB4F27"
+}

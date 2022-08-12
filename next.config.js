@@ -1,3 +1,7 @@
+const withPlugins = require('next-compose-plugins');
+const withPWA = require('next-pwa');
+const runtimeCaching = require('next-pwa/cache');
+
 const isProd = process.env.NODE_ENV === 'production';
 
 /** @type {import('next').NextConfig} */
@@ -27,4 +31,18 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withPlugins(
+  [
+    [
+      withPWA,
+      {
+        pwa: {
+          disable: !isProd,
+          dest: 'public',
+          runtimeCaching,
+        },
+      },
+    ],
+  ],
+  nextConfig,
+);
