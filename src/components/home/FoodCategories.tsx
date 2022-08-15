@@ -2,29 +2,31 @@ import React, { useCallback, useState } from 'react';
 
 import styled from '@emotion/styled';
 
+import { body1Font } from '@/styles/fontStyles';
+
 import FoodCategoryItem from './FoodCategoryItem';
+
+const foodCategory: { emoji: string; name: string }[] = [
+  { emoji: '🍚', name: '한식' },
+  { emoji: '🍝', name: '양식' },
+  { emoji: '🍣', name: '일식' },
+  { emoji: '🍜', name: '중식' },
+  { emoji: '🍲', name: '찜 / 탕' },
+  { emoji: '🥜', name: '마른안주' },
+  { emoji: '🍖', name: '고기' },
+  { emoji: '🍟', name: '튀김' },
+  { emoji: '🍧', name: '디저트' },
+];
 
 function FoodCategories() {
   const [selectedCategory, setSelectedCategory] = useState<string>('');
-
-  const foodCategory: { emoji: string; name: string }[] = [
-    { emoji: '🍚', name: '한식' },
-    { emoji: '🍝', name: '양식' },
-    { emoji: '🍣', name: '일식' },
-    { emoji: '🍜', name: '중식' },
-    { emoji: '🍲', name: '찜 / 탕' },
-    { emoji: '🥜', name: '마른안주' },
-    { emoji: '🍖', name: '고기' },
-    { emoji: '🍟', name: '튀김' },
-    { emoji: '🍧', name: '디저트' },
-  ];
 
   const onSelectedCategory = useCallback((name: string) => setSelectedCategory(name), []);
 
   return (
     <>
       <CategoryDescription>
-        생각해둔 메뉴가 없다면 카테고리로 선택!
+        여러 메뉴가 먹고싶다면 중복선택도 가능!
       </CategoryDescription>
       <FoodCategoryWrapper>
         {foodCategory.map(({ emoji, name }) => (
@@ -44,12 +46,9 @@ function FoodCategories() {
 export default FoodCategories;
 
 const CategoryDescription = styled.div`
+  ${body1Font};
+  color: ${({ theme }) => theme.gray500};
   margin-top: 50px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: -0.05em;
-  color: #9A9A9A;
   margin-bottom: 25px;
 `;
 

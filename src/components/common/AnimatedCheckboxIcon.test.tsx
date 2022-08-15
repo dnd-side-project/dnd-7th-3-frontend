@@ -1,10 +1,14 @@
 import { render, screen } from '@testing-library/react';
 
+import MockTheme from '@/test/MockTheme';
+
 import AnimatedCheckboxIcon from './AnimatedCheckboxIcon';
 
 describe('AnimatedCheckboxIcon', () => {
   const renderAnimatedCheckboxIcon = () => render((
-    <AnimatedCheckboxIcon isChecked={given.isChecked} />
+    <MockTheme>
+      <AnimatedCheckboxIcon isChecked={given.isChecked} />
+    </MockTheme>
   ));
 
   context('isChecked가 true인 경우', () => {

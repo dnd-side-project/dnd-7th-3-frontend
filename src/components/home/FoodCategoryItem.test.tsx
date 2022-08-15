@@ -1,5 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
+import lightTheme from '@/styles/theme';
+import MockTheme from '@/test/MockTheme';
+
 import FoodCategoryItem from './FoodCategoryItem';
 
 describe('FoodCategoryItem', () => {
@@ -11,22 +14,24 @@ describe('FoodCategoryItem', () => {
   });
 
   const renderFoodCategoryItem = () => render((
-    <FoodCategoryItem
-      emoji="🍚"
-      name={foodName}
-      isSelected={given.isSelected}
-      onSelected={handleSelected}
-    />
+    <MockTheme>
+      <FoodCategoryItem
+        emoji="🍚"
+        name={foodName}
+        isSelected={given.isSelected}
+        onSelected={handleSelected}
+      />
+    </MockTheme>
   ));
 
   context('isSelected가 true인 경우', () => {
     given('isSelected', () => true);
 
-    it('border 색상이 "#EB4F27"이어야만 한다', () => {
+    it(`border 색상이 ${lightTheme.main400}이어야만 한다`, () => {
       renderFoodCategoryItem();
 
       expect(screen.getByTestId('food-category-emoji-button')).toHaveStyle({
-        border: '1.5px solid #EB4F27',
+        border: `1.5px solid ${lightTheme.main400}`,
       });
     });
   });

@@ -2,25 +2,30 @@ import { ComponentProps } from 'react';
 
 import { render, screen } from '@testing-library/react';
 
+import lightTheme from '@/styles/theme';
+import MockTheme from '@/test/MockTheme';
+
 import Button from './Button';
 
 describe('Button', () => {
   const renderButton = ({ color, href }: ComponentProps<typeof Button>) => render((
-    <Button
-      color={color}
-      href={href}
-    >
-      버튼
-    </Button>
+    <MockTheme>
+      <Button
+        color={color}
+        href={href}
+      >
+        버튼
+      </Button>
+    </MockTheme>
   ));
 
   describe('버튼 색상 속성에 따라서 스타일 속성이 다르다', () => {
     context('색상 속성이 "orange"인 경우', () => {
-      it('배경색이 #EB4F27 이어야만 한다', () => {
+      it(`배경색이 ${lightTheme.main400} 이어야만 한다`, () => {
         renderButton({ color: 'orange' });
 
         expect(screen.getByText('버튼')).toHaveStyle({
-          'background-color': '#EB4F27',
+          'background-color': lightTheme.main400,
         });
       });
     });

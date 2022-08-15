@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Button from '@/components/common/Button';
 import MobileWebLayout from '@/components/common/MobileWebLayout';
 import FoodCategories from '@/components/home/FoodCategories';
+import { captionFont, heading2Font } from '@/styles/fontStyles';
 
 import LocationIcon from '../assets/icons/location.svg';
 
@@ -50,18 +51,14 @@ const IndexPageLayout = styled(MobileWebLayout)`
 `;
 
 const LocationWrapper = styled.div`
+  ${captionFont};
+  color: ${({ theme }) => theme.gray100};
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   margin-top: 38px;
   margin-bottom: 50px;
-  
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 16px;
-  letter-spacing: -0.05em;
-  color: #FFFFFF;
 
   & > svg {
     margin-right: 4px;
@@ -69,10 +66,7 @@ const LocationWrapper = styled.div`
 `;
 
 const Title = styled.h1`
+  ${heading2Font};
+  color: ${({ theme }) => theme.white};
   margin: 0px;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-  letter-spacing: -0.05em;
-  color: #FFFFFF;
 `;

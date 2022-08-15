@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import styled from '@emotion/styled';
+
+import { body1Font, subHead1Font } from '@/styles/fontStyles';
 
 import Slider from '../common/Slider';
 
@@ -13,10 +15,10 @@ interface FilterItemsProps {
 function FilterItems({ onChange }: FilterItemsProps) {
   const [step, setStep] = useState(1);
 
-  const handleChange = (value: number) => {
+  const handleChange = useCallback((value: number) => {
     setStep(value);
     onChange?.();
-  };
+  }, []);
 
   return (
     <>
@@ -42,24 +44,17 @@ function FilterItems({ onChange }: FilterItemsProps) {
 export default FilterItems;
 
 const FilterItemTitle = styled.div`
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
+  ${subHead1Font};
+  color: ${({ theme }) => theme.white};
   text-align: start;
-  letter-spacing: -0.05em;
-
-  color: #FFFFFF;
   margin-bottom: 23px;
 `;
 
 const FilterItemContents = styled.div`
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 18px;
+  ${body1Font}
+  color: ${({ theme }) => theme.gray700};
   text-align: center;
-  letter-spacing: -0.05em;
 
-  color: #8C8C8C;
 `;
 
 const RadiusLabel = styled.div`

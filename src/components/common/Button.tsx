@@ -5,6 +5,8 @@ import { css, Theme } from '@emotion/react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 
+import { subHead1Font } from '@/styles/fontStyles';
+
 export type ColorType = 'orange';
 
 interface ButtonProps extends HTMLProps<HTMLButtonElement | HTMLAnchorElement> {
@@ -52,13 +54,12 @@ function Button({
 export default Button;
 
 const ButtonWrapper = ({
-  borderRadius, color,
+  borderRadius, color, theme,
 }: StyledButtonProps) => css`
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
+  ${subHead1Font};
+  width: 100%;
+  max-width: 327px;
   text-align: center;
-  letter-spacing: -0.05em;
   cursor: pointer;
   position: relative;
   transform: translateZ(0);
@@ -77,7 +78,7 @@ const ButtonWrapper = ({
   text-align: center;
   border: none;
   border-radius: ${`${borderRadius}px`};
-  height: 49px;
+  height: 40px;
   padding: 0 66px;
 
   @media(hover: hover) and (pointer: fine) {
@@ -88,7 +89,7 @@ const ButtonWrapper = ({
       right: 0;
       bottom: 0;
       left: 0;
-      background-color: #000000;
+      background-color: ${theme.black};
       opacity: 0;
       transition: opacity .1s ease-in-out;
     }
@@ -99,8 +100,8 @@ const ButtonWrapper = ({
   }
 
   ${color === 'orange' && css`
-    color: #ffffff;
-    background-color: #EB4F27;
+    color: ${theme.white};
+    background-color: ${theme.main400};
   `}
 
   &:disabled {
