@@ -63,6 +63,7 @@ const FoodCategoryEmoji = styled.div<{ isSelected: boolean; }>`
   border: 1.5px solid transparent;
   margin-bottom: 8px;
 
+  // TODO - 이모지는 정의되어있지 않음
   font-weight: 400;
   font-size: 36px;
   line-height: 41px;

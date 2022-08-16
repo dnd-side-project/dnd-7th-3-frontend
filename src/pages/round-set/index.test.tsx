@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import RoundSetPage from './round-set.page';
+import RoundSetPage from './index.page';
 
 describe('RoundSetPage', () => {
   const renderRoundSetPage = () => render((

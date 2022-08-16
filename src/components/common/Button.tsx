@@ -58,7 +58,6 @@ const ButtonWrapper = ({
 }: StyledButtonProps) => css`
   ${subHead1Font};
   width: 100%;
-  max-width: 327px;
   text-align: center;
   cursor: pointer;
   position: relative;
@@ -79,7 +78,6 @@ const ButtonWrapper = ({
   border: none;
   border-radius: ${`${borderRadius}px`};
   height: 40px;
-  padding: 0 66px;
 
   @media(hover: hover) and (pointer: fine) {
     &:not(:disabled):after {

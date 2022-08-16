@@ -48,12 +48,12 @@ const SliderWrapper = styled.div`
   }
 
   .input-range__slider {
-    width: 29px;
-    height: 29px;
+    width: 20px;
+    height: 20px;
     border: none;
     border-radius: 50%;
     background: ${({ theme }) => theme.white};
-    margin-top: -19px;
+    margin-top: -15px;
     box-shadow: 0px 4px 10px 15px rgba(235, 79, 39, 0.05);
   }
 `;

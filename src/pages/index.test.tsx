@@ -7,9 +7,9 @@ describe('IndexPage', () => {
     <IndexPage />
   ));
 
-  it('"메뉴를 선택해주세요"문구가 나타나야만 한다', () => {
+  it('"반가워요!"문구가 나타나야만 한다', () => {
     const { container } = renderIndexPage();
 
-    expect(container).toHaveTextContent('메뉴를 선택해주세요');
+    expect(container).toHaveTextContent('반가워요!');
   });
 });

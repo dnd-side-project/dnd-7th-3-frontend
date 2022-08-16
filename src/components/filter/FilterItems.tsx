@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react';
 import styled from '@emotion/styled';
 
 import { body1Font, subHead1Font } from '@/styles/fontStyles';
+import mobileWebMQ from '@/styles/responsive';
 
 import Slider from '../common/Slider';
 
@@ -47,7 +48,7 @@ const FilterItemTitle = styled.div`
   ${subHead1Font};
   color: ${({ theme }) => theme.white};
   text-align: start;
-  margin-bottom: 23px;
+  margin-bottom: 15px;
 `;
 
 const FilterItemContents = styled.div`
@@ -58,8 +59,11 @@ const FilterItemContents = styled.div`
 `;
 
 const RadiusLabel = styled.div`
+  ${mobileWebMQ({
+    gridColumnGap: ['5vw', '55px'],
+  })};
+
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 5vw;
-  margin-bottom: 23px;
+  margin-bottom: 16px;
 `;

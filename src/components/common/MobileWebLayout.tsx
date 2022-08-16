@@ -39,16 +39,16 @@ const MobileWebLayoutWrapper = styled.div`
 `;
 
 const ContainerWrapper = styled.div`
-  padding: 40px 20px 30px 20px;
-  min-height: calc(100% - 70px);
+  padding: 40px 25px 50px 25px;
+  min-height: calc(100% - 90px);
   background-color: ${({ theme }) => theme.black};
   height: auto;
 
   ${mobileWebMQ({
     position: [false, 'relative'],
-    width: ['calc(100% - 40px)', 'auto'],
+    width: ['calc(100% - 50px)', 'auto'],
     maxWidth: [false, '450px'],
-    minHeight: ['calc((var(--vh, 1vh) * 100) - 70px)'],
+    minHeight: ['calc((var(--vh, 1vh) * 100) - 90px)'],
     margin: [false, '0 auto'],
   })}
 
