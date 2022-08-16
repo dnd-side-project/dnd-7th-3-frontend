@@ -3,6 +3,8 @@ import React, { memo } from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { body1Font } from '@/styles/fontStyles';
+
 import AnimatedCheckboxIcon from '../common/AnimatedCheckboxIcon';
 
 interface FoodCategoryItemProps {
@@ -54,27 +56,24 @@ const FoodCategoryEmoji = styled.div<{ isSelected: boolean; }>`
   justify-content: center;
   align-items: center;
   width: 64px;
-  height: 64px;
-  background: #202020;
-  border-radius: 50%;
+  height: 63px;
+  background: ${({ theme }) => theme.gray900};
+  border-radius: 25px;
   box-sizing: border-box;
   border: 1.5px solid transparent;
   margin-bottom: 8px;
 
   font-weight: 400;
   font-size: 36px;
-  line-height: 43px;
+  line-height: 41px;
   letter-spacing: -0.333333px;
 
-  ${({ isSelected }) => isSelected && css`
-    border: 1.5px solid #EB4F27;
+  ${({ isSelected, theme }) => isSelected && css`
+    border: 1.5px solid ${theme.main400};
   `};
 `;
 
 const FoodCategoryName = styled.div`
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 16px;
-  letter-spacing: -0.05em;
-  color: #D9D9D9;
+  ${body1Font};
+  color: ${({ theme }) => theme.white};
 `;

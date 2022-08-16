@@ -35,15 +35,13 @@ const MobileWebLayoutWrapper = styled.div`
   padding: 0;
   margin: 0;
   height: 100%;
-  // TODO: 추후 color design이 적용되면 변경
-  background-color: #2c2c35;
+  background-color: ${({ theme }) => theme.gray900};
 `;
 
 const ContainerWrapper = styled.div`
   padding: 40px 20px 30px 20px;
   min-height: calc(100% - 70px);
-  // TODO: 추후 color design이 적용되면 변경
-  background-color: #000000;
+  background-color: ${({ theme }) => theme.black};
   height: auto;
 
   ${mobileWebMQ({
@@ -55,26 +53,24 @@ const ContainerWrapper = styled.div`
   })}
 
   &::before {
-  ${mobileWebMQ({
+  ${({ theme }) => mobileWebMQ({
     content: [false, '" "'],
     position: 'absolute',
     left: '-1px',
     top: 0,
     bottom: 0,
-    // TODO: 추후 color design이 적용되면 변경
-    borderLeft: '1px solid gray',
+    borderLeft: `1px solid ${theme.gray500}`,
   })}
   }
 
   &::after {
-  ${mobileWebMQ({
+  ${({ theme }) => mobileWebMQ({
     content: [false, '" "'],
     position: 'absolute',
     right: '-1px',
     top: 0,
     bottom: 0,
-    // TODO: 추후 color design이 적용되면 변경
-    borderRight: '1px solid gray',
+    borderLeft: `1px solid ${theme.gray500}`,
   })}
   }
 `;

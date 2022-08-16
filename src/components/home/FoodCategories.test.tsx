@@ -1,18 +1,23 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
+import lightTheme from '@/styles/theme';
+import MockTheme from '@/test/MockTheme';
+
 import FoodCategories from './FoodCategories';
 
 describe('FoodCategories', () => {
   const foodEmoji = '🍚';
 
   const renderFoodCategories = () => render((
-    <FoodCategories />
+    <MockTheme>
+      <FoodCategories />
+    </MockTheme>
   ));
 
-  it('"생각해둔 메뉴가 없다면 카테고리로 선택!" 문구가 나타나야만 한다', () => {
+  it('"여러 메뉴가 먹고싶다면 중복선택도 가능!" 문구가 나타나야만 한다', () => {
     const { container } = renderFoodCategories();
 
-    expect(container).toHaveTextContent('생각해둔 메뉴가 없다면 카테고리로 선택!');
+    expect(container).toHaveTextContent('여러 메뉴가 먹고싶다면 중복선택도 가능!');
   });
 
   describe('음식 카테고리를 클릭한다', () => {
@@ -24,7 +29,7 @@ describe('FoodCategories', () => {
       fireEvent.click(foodCategoryItemElement);
 
       expect(foodCategoryItemElement).toHaveStyle({
-        border: '1.5px solid #EB4F27',
+        border: `1.5px solid ${lightTheme.main400}`,
       });
     });
   });

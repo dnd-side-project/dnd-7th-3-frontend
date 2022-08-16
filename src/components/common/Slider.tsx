@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { memo, ReactElement } from 'react';
 import InputRange from 'react-input-range';
 
 import styled from '@emotion/styled';
@@ -28,7 +28,7 @@ function Slider({
   );
 }
 
-export default Slider;
+export default memo(Slider);
 
 const SliderWrapper = styled.div`
   margin: 0 10px;
@@ -40,11 +40,11 @@ const SliderWrapper = styled.div`
   .input-range__track {
     height: 10px;
     border-radius: 5px;
-    background: #202020;
+    background: ${({ theme }) => theme.gray800};
   }
 
   .input-range__track--active {
-    background: #EB4F27;
+    background: ${({ theme }) => theme.main400};
   }
 
   .input-range__slider {
@@ -52,7 +52,7 @@ const SliderWrapper = styled.div`
     height: 29px;
     border: none;
     border-radius: 50%;
-    background: #222529;
+    background: ${({ theme }) => theme.white};
     margin-top: -19px;
     box-shadow: 0px 4px 10px 15px rgba(235, 79, 39, 0.05);
   }

@@ -7,10 +7,8 @@ export const setGlobalStyles = css`
   ${emotionNormalize}
 
   body {
-    font-family:'Apple SD Gothic', 'Noto Sans KR', '맑은고딕', sans-serif;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     box-sizing: border-box;
-    // TODO - 추후 변경
-    color: #9A9A9A;
   }
 
   a {

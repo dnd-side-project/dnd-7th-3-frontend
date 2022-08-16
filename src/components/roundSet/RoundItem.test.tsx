@@ -1,5 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
+import lightTheme from '@/styles/theme';
+import MockTheme from '@/test/MockTheme';
+
 import RoundItem from './RoundItem';
 
 describe('RoundItem', () => {
@@ -11,18 +14,24 @@ describe('RoundItem', () => {
   });
 
   const renderRoundItem = () => render((
-    <RoundItem name={roundName} isSelected={given.isSelected} onSelected={handleSelected} />
+    <MockTheme>
+      <RoundItem
+        name={roundName}
+        isSelected={given.isSelected}
+        onSelected={handleSelected}
+      />
+    </MockTheme>
   ));
 
   context('isSelected가 true인 경우', () => {
     given('isSelected', () => true);
 
-    it('border 색상이 "#EB4F27"이어야만 하며, text 색상은 "#FFFFFF"이어야만 한다', () => {
+    it(`border 색상이 "${lightTheme.main400}"이어야만 하며, text 색상은 "${lightTheme.main400}"이어야만 한다`, () => {
       renderRoundItem();
 
       expect(screen.getByText(roundName)).toHaveStyle({
-        border: '1.5px solid #EB4F27',
-        color: '#FFFFFF',
+        border: `1.5px solid ${lightTheme.main400}`,
+        color: lightTheme.main400,
       });
     });
   });
@@ -30,12 +39,11 @@ describe('RoundItem', () => {
   context('isSelected가 false인 경우', () => {
     given('isSelected', () => false);
 
-    it('border 색상이 "#464646"이어야만 하며, text 색상은 "#808080"이어야만 한다', () => {
+    it(`background-color 색상이 "${lightTheme.gray900}"이어야만 한다`, () => {
       renderRoundItem();
 
       expect(screen.getByText(roundName)).toHaveStyle({
-        border: '1.5px solid #464646',
-        color: '#808080',
+        'background-color': lightTheme.gray900,
       });
     });
   });

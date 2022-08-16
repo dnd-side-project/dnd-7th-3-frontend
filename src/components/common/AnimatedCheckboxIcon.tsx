@@ -3,6 +3,7 @@ import {
   animated, config, useChain, useSpring, useSpringRef,
 } from 'react-spring';
 
+import { useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { checkNumNull } from '@/utils/utils';
@@ -12,6 +13,7 @@ interface AnimatedCheckboxIconProps {
 }
 
 function AnimatedCheckboxIcon({ isChecked }: AnimatedCheckboxIconProps) {
+  const theme = useTheme();
   const [checkmarkLength, setCheckmarkLength] = useState<number>(0);
 
   const checkboxAnimationRef = useSpringRef();
@@ -47,7 +49,7 @@ function AnimatedCheckboxIcon({ isChecked }: AnimatedCheckboxIconProps) {
         cx={10.5}
         cy={10.5}
         r={10.5}
-        fill="#EB4F27"
+        fill={theme.main400}
         style={checkboxAnimationStyle}
         data-testid="checkbox-circle"
       />

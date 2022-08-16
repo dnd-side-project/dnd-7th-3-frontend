@@ -32,6 +32,14 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" href="/images/maskable_icon_512.png" />
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
+
+          <link
+            rel="stylesheet"
+            as="style"
+            crossOrigin="anonymous"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard-dynamic-subset.css"
+          />
         </Head>
         <body>
           <Main />

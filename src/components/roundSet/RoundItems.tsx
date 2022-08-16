@@ -9,7 +9,7 @@ import RoundItem from './RoundItem';
 function RoundItems() {
   const [selectedRound, setSelectedRound] = useState<string>('');
 
-  const rounds:string[] = ['32강', '16강', '8강', '4강'];
+  const rounds: string[] = ['32강', '16강', '8강', '4강'];
 
   const onSelectedRound = useCallback((name: string) => setSelectedRound(name), []);
 
@@ -26,7 +26,7 @@ function RoundItems() {
         ))}
       </RoundItemsWrapper>
       <ButtonWrapper>
-        <Button disabled={!selectedRound}>월드컵시작</Button>
+        <Button disabled={!selectedRound}>게임 시작</Button>
       </ButtonWrapper>
     </>
   );
