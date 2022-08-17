@@ -1,34 +1,36 @@
 import styled from '@emotion/styled';
 
-import Button from '@/components/common/Button';
 import MobileWebLayout from '@/components/common/MobileWebLayout';
-import FoodCategories from '@/components/home/FoodCategories';
-import { captionFont, heading2Font } from '@/styles/fontStyles';
-
-import LocationIcon from '../assets/icons/location.svg';
+import GameItem from '@/components/home/GameItem';
+import { heading3Font, subHead2Font } from '@/styles/fontStyles';
 
 function IndexPage() {
   return (
     <IndexPageLayout>
-      <div>
-        <LocationWrapper>
-          <LocationIcon />
-          <div>
-            위치정보없음
-          </div>
-        </LocationWrapper>
-        <Title>
-          2차에서 먹고싶은
+      <TitleSection>
+        <div>반가워요!</div>
+        <h1>
+          원하는
           <br />
-          메뉴를 선택해주세요
-        </Title>
-        <FoodCategories />
-      </div>
-      <div>
-        <Button>
-          다음
-        </Button>
-      </div>
+          게임을 선택해주세요 👋🏻
+        </h1>
+      </TitleSection>
+
+      <GameItem
+        url="/filter/menu"
+        imageUrl="/images/game-item-1.png"
+        alt="2차장소 월드컵 이미지"
+        title="2차장소 월드컵"
+        description="2차장소를 정하고싶은데 어디를 가야할지 모를때!"
+      />
+
+      <GameItem
+        url="/"
+        imageUrl="/images/game-item-2.png"
+        alt="랜덤 게임 이미지"
+        title="랜덤 게임"
+        description="룰렛부터 술값내기까지 술자리 랜덤게임 시작!"
+      />
     </IndexPageLayout>
   );
 }
@@ -37,36 +39,27 @@ export default IndexPage;
 
 const IndexPageLayout = styled(MobileWebLayout)`
   & > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    & > div:last-of-type {
-      display: flex;
-      justify-content: center;
-      margin-top: 54px;
-      margin-bottom: 12px;
+    & > a:first-of-type {
+      margin-bottom: 20px;
     }
   }
 `;
 
-const LocationWrapper = styled.div`
-  ${captionFont};
-  color: ${({ theme }) => theme.gray100};
+const TitleSection = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: 38px;
-  margin-bottom: 50px;
+  flex-direction: column;
+  margin-top: 13px;
+  margin-bottom: 44px;
 
-  & > svg {
-    margin-right: 4px;
+  & > div {
+    ${subHead2Font};
+    color: ${({ theme }) => theme.main400};
+    margin-bottom: 4px;
   }
-`;
 
-const Title = styled.h1`
-  ${heading2Font};
-  color: ${({ theme }) => theme.white};
-  margin: 0px;
+  & > h1 {
+    ${heading3Font};
+    color: ${({ theme }) => theme.white};
+    margin: 0;
+  }
 `;

@@ -17,27 +17,41 @@ describe('RoundItem', () => {
     <MockTheme>
       <RoundItem
         name={roundName}
-        isSelected={given.isSelected}
+        selectedRound={given.selectedRound}
         onSelected={handleSelected}
       />
     </MockTheme>
   ));
 
-  context('isSelected가 true인 경우', () => {
-    given('isSelected', () => true);
+  context('selectedRound가 존재하는 경우', () => {
+    context('"name"과 "selectedRound"가 일치하는 경우', () => {
+      given('selectedRound', () => roundName);
 
-    it(`border 색상이 "${lightTheme.main400}"이어야만 하며, text 색상은 "${lightTheme.main400}"이어야만 한다`, () => {
-      renderRoundItem();
+      it(`border 색상이 "${lightTheme.main400}"이어야만 하며, text 색상은 "${lightTheme.main400}"이어야만 한다`, () => {
+        renderRoundItem();
 
-      expect(screen.getByText(roundName)).toHaveStyle({
-        border: `1.5px solid ${lightTheme.main400}`,
-        color: lightTheme.main400,
+        expect(screen.getByText(roundName)).toHaveStyle({
+          border: `1.5px solid ${lightTheme.main400}`,
+          color: lightTheme.main400,
+        });
+      });
+    });
+
+    context('"name"과 "selectedRound"가 일치하지 않는 경우', () => {
+      given('selectedRound', () => '4강');
+
+      it('opacity 속성이 "0.6"이어야만 한다', () => {
+        renderRoundItem();
+
+        expect(screen.getByText(roundName)).toHaveStyle({
+          opacity: 0.6,
+        });
       });
     });
   });
 
-  context('isSelected가 false인 경우', () => {
-    given('isSelected', () => false);
+  context('selectedRound가 존재하지 않는 경우', () => {
+    given('selectedRound', () => undefined);
 
     it(`background-color 색상이 "${lightTheme.gray900}"이어야만 한다`, () => {
       renderRoundItem();

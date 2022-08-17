@@ -2,6 +2,6 @@ describe('Index Page', () => {
   it('successfully loads', () => {
     cy.visit('/');
 
-    cy.contains('2차');
+    cy.contains('반가워요!');
   });
 });
