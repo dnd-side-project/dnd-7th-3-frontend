@@ -129,5 +129,8 @@ module.exports = {
     'react/require-default-props': [2, {
       ignoreFunctionalComponents: true,
     }],
+    'jsx-a11y/anchor-is-valid': ['error', {
+      aspects: ['invalidHref'],
+    }],
   },
 };

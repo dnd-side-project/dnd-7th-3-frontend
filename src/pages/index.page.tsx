@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-import MobileWebLayout from '@/components/common/MobileWebLayout';
 import GameItem from '@/components/home/GameItem';
 import { heading3Font, subHead2Font } from '@/styles/fontStyles';
 
@@ -37,11 +36,9 @@ function IndexPage() {
 
 export default IndexPage;
 
-const IndexPageLayout = styled(MobileWebLayout)`
-  & > div {
-    & > a:first-of-type {
-      margin-bottom: 20px;
-    }
+const IndexPageLayout = styled.div`
+  & > a:first-of-type {
+    margin-bottom: 20px;
   }
 `;
 

@@ -1,11 +1,10 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { PropsWithChildren, useEffect } from 'react';
 
 import styled from '@emotion/styled';
 
 import mobileWebMQ from '@/styles/responsive';
 
-function MobileWebLayout({ children, ...rest }: PropsWithChildren<unknown>) {
+function MobileWebLayout({ children }: PropsWithChildren<unknown>) {
   const handleResize = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -19,7 +18,7 @@ function MobileWebLayout({ children, ...rest }: PropsWithChildren<unknown>) {
   }, []);
 
   return (
-    <MobileWebLayoutWrapper {...rest}>
+    <MobileWebLayoutWrapper>
       <ContainerWrapper>
         {children}
       </ContainerWrapper>
@@ -43,6 +42,9 @@ const ContainerWrapper = styled.div`
   min-height: calc(100% - 90px);
   background-color: ${({ theme }) => theme.black};
   height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   ${mobileWebMQ({
     position: [false, 'relative'],
