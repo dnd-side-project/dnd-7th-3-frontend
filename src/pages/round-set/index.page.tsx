@@ -1,24 +1,17 @@
 import React from 'react';
 
-import styled from '@emotion/styled';
-
-import MobileWebLayout from '@/components/common/MobileWebLayout';
+import getNavigationHeaderLayout from '@/components/common/NavigationHeaderGetLayout';
 import RoundSet from '@/components/roundSet/RoundSet';
 
 function RoundSetPage() {
   return (
-    <RoundSetPageLayout>
-      <RoundSet />
-    </RoundSetPageLayout>
+    <RoundSet />
   );
 }
 
-export default RoundSetPage;
+RoundSetPage.getLayout = getNavigationHeaderLayout({
+  activeDot: 'roundSet',
+  goBackHref: '/filter/radius',
+});
 
-const RoundSetPageLayout = styled(MobileWebLayout)`
-  & > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-`;
+export default RoundSetPage;

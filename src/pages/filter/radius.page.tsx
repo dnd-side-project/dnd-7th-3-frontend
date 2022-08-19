@@ -3,14 +3,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import Button from '@/components/common/Button';
-import MobileWebLayout from '@/components/common/MobileWebLayout';
+import getNavigationHeaderLayout from '@/components/common/NavigationHeaderGetLayout';
 import FilterItems from '@/components/filter/FilterItems';
 import LocationInformation from '@/components/filter/LocationInformation';
 import { body1Font, heading2Font } from '@/styles/fontStyles';
 
 function FilterRadiusPage() {
   return (
-    <FilterRadiusPageLayout>
+    <>
       <div>
         <FilterRadiusTileSection>
           <LocationInformation />
@@ -19,22 +19,22 @@ function FilterRadiusPage() {
         </FilterRadiusTileSection>
         <FilterItems />
       </div>
-      <Button href="/round-set">
-        다음
-      </Button>
-    </FilterRadiusPageLayout>
+      <div>
+        <Button href="/round-set">
+          다음
+        </Button>
+      </div>
+    </>
   );
 }
 
 export default FilterRadiusPage;
 
-const FilterRadiusPageLayout = styled(MobileWebLayout)`
-  & > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-`;
+FilterRadiusPage.getLayout = getNavigationHeaderLayout({
+  activeDot: 'radius',
+  goBackHref: '/filter/menu',
+  nextHref: '/round-set',
+});
 
 const FilterRadiusTileSection = styled.div`
   display: flex;

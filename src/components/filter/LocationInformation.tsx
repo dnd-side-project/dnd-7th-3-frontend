@@ -24,7 +24,7 @@ const LocationWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 38px;
+  margin-top: 59px;
   margin-bottom: 29px;
 
   & > svg {
