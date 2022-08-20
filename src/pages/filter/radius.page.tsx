@@ -19,11 +19,9 @@ function FilterRadiusPage() {
         </FilterRadiusTileSection>
         <FilterItems />
       </div>
-      <div>
-        <Button href="/round-set">
-          다음
-        </Button>
-      </div>
+      <Button href="/round-set">
+        다음
+      </Button>
     </>
   );
 }
