@@ -17,16 +17,27 @@ const foodCategory: { emoji: string; name: string }[] = [
 ];
 
 function FoodCategories() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
-  const onSelectedCategory = useCallback((name: string) => setSelectedCategory(name), []);
+  const onSelectedCategory = useCallback((selectedCategory: string) => {
+    if (selectedCategories.includes(selectedCategory)) {
+      setSelectedCategories((
+        prevSelectedCategories,
+      ) => prevSelectedCategories.filter((category) => category !== selectedCategory));
+      return;
+    }
+
+    setSelectedCategories((prevSelectedCategories) => [
+      ...prevSelectedCategories, selectedCategory,
+    ]);
+  }, [selectedCategories]);
 
   return (
     <FoodCategoryWrapper>
       {foodCategory.map(({ emoji, name }) => (
         <FoodCategoryItem
           key={name}
-          isSelected={selectedCategory === name}
+          isSelected={selectedCategories.includes(name)}
           onSelected={onSelectedCategory}
           emoji={emoji}
           name={name}

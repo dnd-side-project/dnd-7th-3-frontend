@@ -9,20 +9,18 @@ import { body1Font, heading2Font } from '@/styles/fontStyles';
 function FilterMenuPage() {
   return (
     <>
-      <div>
-        <FilterMenuTitleSection>
-          <LocationInformation />
-          <Title>
-            2차에서 먹고싶은
-            <br />
-            메뉴를 선택해주세요
-          </Title>
-          <CategoryDescription>
-            여러 메뉴가 먹고싶다면 중복선택도 가능!
-          </CategoryDescription>
-          <FoodCategories />
-        </FilterMenuTitleSection>
-      </div>
+      <FilterMenuContentsSection>
+        <LocationInformation />
+        <Title>
+          2차에서 먹고싶은
+          <br />
+          메뉴를 선택해주세요
+        </Title>
+        <CategoryDescription>
+          여러 메뉴가 먹고싶다면 중복선택도 가능!
+        </CategoryDescription>
+        <FoodCategories />
+      </FilterMenuContentsSection>
       <Button href="/filter/radius">
         다음
       </Button>
@@ -38,7 +36,7 @@ FilterMenuPage.getLayout = getNavigationHeaderLayout({
   nextHref: '/filter/radius',
 });
 
-const FilterMenuTitleSection = styled.div`
+const FilterMenuContentsSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

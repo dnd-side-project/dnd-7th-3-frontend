@@ -15,15 +15,32 @@ describe('FoodCategories', () => {
   ));
 
   describe('음식 카테고리를 클릭한다', () => {
-    it('선택된 border 색상이 변경되어야만 한다', () => {
-      renderFoodCategories();
+    context('이미 선택한 카테고리인 경우', () => {
+      it('border 색상은 없어야만 한다', () => {
+        renderFoodCategories();
 
-      const foodCategoryItemElement = screen.getByText(foodEmoji);
+        const foodCategoryItemElement = screen.getByText(foodEmoji);
 
-      fireEvent.click(foodCategoryItemElement);
+        fireEvent.click(foodCategoryItemElement);
+        fireEvent.click(foodCategoryItemElement);
 
-      expect(foodCategoryItemElement).toHaveStyle({
-        border: `1.5px solid ${lightTheme.main400}`,
+        expect(foodCategoryItemElement).toHaveStyle({
+          border: '1.5px solid transparent',
+        });
+      });
+    });
+
+    context('선택되지 않은 카테고리인 경우', () => {
+      it(`border 색상이 ${lightTheme.main400}이여야만 한다`, () => {
+        renderFoodCategories();
+
+        const foodCategoryItemElement = screen.getByText(foodEmoji);
+
+        fireEvent.click(foodCategoryItemElement);
+
+        expect(foodCategoryItemElement).toHaveStyle({
+          border: `1.5px solid ${lightTheme.main400}`,
+        });
       });
     });
   });
