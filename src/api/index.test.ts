@@ -41,10 +41,12 @@ describe('getUrl', () => {
   });
 
   context('isBFF가 false인 경우', () => {
-    it('url 앞에 NEXT_PUBLIC_API_HOST가 붙어서 반환해야만 한다', () => {
+    const BASE_URL = 'http://15.164.216.101';
+
+    it('url 앞에 BASE_URL이 붙어서 반환해야만 한다', () => {
       const url = getUrl('/path');
 
-      expect(url).toBe(`${process.env.NEXT_PUBLIC_API_HOST}${path}`);
+      expect(url).toBe(`${BASE_URL}${path}`);
     });
   });
 });
