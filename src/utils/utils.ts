@@ -13,3 +13,5 @@ export const checkNumNull = (value?: number | null): number => {
 
   return value;
 };
+
+export const emptyAThenB = <T>(b: T, a?: T | null) => a || b;

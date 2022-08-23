@@ -2,6 +2,11 @@ import { render } from '@testing-library/react';
 
 import FilterRadiusPage from './radius.page';
 
+jest.mock('@/components/filter/LocationInformation', () => ({
+  __esModule: true,
+  default: () => <div />,
+}));
+
 describe('FilterRadiusPage', () => {
   const renderFilterRadiusPage = () => render((
     <FilterRadiusPage />

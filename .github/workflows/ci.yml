@@ -57,6 +57,13 @@ jobs:
         with:
           node-version: ${{ env.DEFAULT_NODE_VERSION }}
 
+      - name: Create env file
+        run: |
+          touch .env
+          echo NEXT_PUBLIC_API_HOST = ${{ secrets.API_HOST }} >> .env
+          echo NEXT_PUBLIC_NAVER_CLIENT_ID = ${{ secrets.NAVER_CLIENT_ID }} >> .env
+          cat .env
+
       - name: Check dependency cache
         uses: actions/cache@v3
         with:
