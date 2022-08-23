@@ -50,3 +50,6 @@ cypress/log
 # next-pwa
 **/public/workbox**
 **/public/sw**
+
+#env
+.env
