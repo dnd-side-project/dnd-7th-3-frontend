@@ -1,4 +1,4 @@
-import { checkNull, checkNumNull } from './utils';
+import { checkNull, checkNumNull, emptyAThenB } from './utils';
 
 describe('checkNull', () => {
   context('value가 null일 경우', () => {
@@ -32,6 +32,28 @@ describe('checkNumNull', () => {
       const result = checkNumNull(100);
 
       expect(result).toBe(100);
+    });
+  });
+});
+
+describe('emptyAThenB', () => {
+  const b = 'B';
+
+  context('null 또는 undefined인 경우', () => {
+    it('첫 번째 인자를 반환야만 한다', () => {
+      const result = emptyAThenB(b, null);
+
+      expect(result).toBe(b);
+    });
+  });
+
+  context('값이 존재하는 경우', () => {
+    const a = 'test';
+
+    it('두 번째 인자를 반환야만 한다', () => {
+      const result = emptyAThenB(b, a);
+
+      expect(result).toBe(a);
     });
   });
 });

@@ -2,6 +2,11 @@ import { render } from '@testing-library/react';
 
 import FilterMenuPage from './menu.page';
 
+jest.mock('@/components/filter/LocationInformation', () => ({
+  __esModule: true,
+  default: () => <div />,
+}));
+
 describe('FilterMenuPage', () => {
   const renderFilterMenuPage = () => render((
     <FilterMenuPage />
