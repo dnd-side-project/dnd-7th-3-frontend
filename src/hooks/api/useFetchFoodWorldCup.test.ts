@@ -14,8 +14,16 @@ describe('useFetchFoodWorldCup', () => {
     (fetchFoodWorldCup as jest.Mock).mockResolvedValue('test');
   });
 
+  const requestForm = {
+    food: '한식',
+    latitude: 37.124,
+    longitude: 127.222,
+    radius: 1000,
+    round: 16,
+  };
+
   const useFetchFoodWorldCupHook = () => renderHook(
-    () => useFetchFoodWorldCup(),
+    () => useFetchFoodWorldCup(requestForm),
     { wrapper },
   );
 
@@ -24,7 +32,7 @@ describe('useFetchFoodWorldCup', () => {
 
     await waitFor(() => result.current.isSuccess);
 
-    expect(fetchFoodWorldCup).toBeCalled();
+    expect(fetchFoodWorldCup).toBeCalledWith(requestForm);
     expect(result.current.data).toEqual('test');
   });
 });

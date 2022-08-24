@@ -1,18 +1,27 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 
 import styled from '@emotion/styled';
+import { useRecoilState } from 'recoil';
 
 import Button from '@/components/common/Button';
+import { foodWorldCupFormState } from '@/recoil/foodFilter/atom';
 import { body1Font, heading2Font } from '@/styles/fontStyles';
 
 import RoundItem from './RoundItem';
 
+const rounds = [
+  { key: 4, name: '4강' },
+  { key: 8, name: '8강' },
+  { key: 16, name: '16강' },
+];
+
 function RoundSet() {
-  const [selectedRound, setSelectedRound] = useState<string>();
+  const [{ round }, setFoodWorldCupForm] = useRecoilState(foodWorldCupFormState);
 
-  const rounds: string[] = ['4강', '8강', '16강', '32강'];
-
-  const onSelectedRound = useCallback((name: string) => setSelectedRound(name), []);
+  const onSelectedRound = useCallback((selectedRound: number) => setFoodWorldCupForm((prev) => ({
+    ...prev,
+    round: selectedRound,
+  })), []);
 
   return (
     <>
@@ -20,17 +29,18 @@ function RoundSet() {
         <RoundSetTitle>라운드를 설정해주세요</RoundSetTitle>
         <RoundSetDescription>진행하고싶은 월드컵 라운드를 선택해주세요</RoundSetDescription>
         <RoundItemsWrapper>
-          {rounds.map((round) => (
+          {rounds.map(({ key, name }) => (
             <RoundItem
-              key={round}
-              name={round}
-              selectedRound={selectedRound}
+              key={key}
+              name={name}
+              value={key}
+              selectedRound={round}
               onSelected={onSelectedRound}
             />
           ))}
         </RoundItemsWrapper>
       </RoundSetWrapper>
-      {selectedRound && (
+      {round && (
         <Button type="button">게임 시작</Button>
       )}
     </>

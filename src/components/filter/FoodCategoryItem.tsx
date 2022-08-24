@@ -10,14 +10,15 @@ import AnimatedCheckboxIcon from '../common/AnimatedCheckboxIcon';
 interface FoodCategoryItemProps {
   name: string;
   emoji: string;
+  value: string;
   isSelected: boolean;
-  onSelected: (name: string) => void;
+  onSelected: (value: string) => void;
 }
 
 function FoodCategoryItem({
-  name, emoji, isSelected, onSelected,
+  name, emoji, isSelected, onSelected, value,
 }: FoodCategoryItemProps) {
-  const handleSelect = () => onSelected(name);
+  const handleSelect = () => onSelected(value);
 
   return (
     <FoodCategoryItemWrapper>

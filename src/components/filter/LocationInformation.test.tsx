@@ -1,6 +1,7 @@
 import { useGeolocation } from 'react-use';
 
 import { render } from '@testing-library/react';
+import { RecoilRoot } from 'recoil';
 
 import LocationInformation from './LocationInformation';
 
@@ -48,7 +49,9 @@ describe('LocationInformation', () => {
   });
 
   const renderLocationInformation = () => render((
-    <LocationInformation />
+    <RecoilRoot>
+      <LocationInformation />
+    </RecoilRoot>
   ));
 
   context('위치정보 api가 로딩중인 경우', () => {

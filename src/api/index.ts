@@ -3,8 +3,6 @@ import qs from 'qs';
 
 import { BaseHeader, CustomAxiosRequestConfig } from '@/models/api';
 
-const BASE_URL = 'http://15.164.216.101';
-
 const baseHeaders: BaseHeader = {
   'Content-Type': 'application/json',
   Accept: 'application/json',
@@ -15,7 +13,7 @@ export const getUrl = (url: string, isBFF = false): string => {
     return `/api${url}`;
   }
 
-  return `${BASE_URL}${url}`;
+  return `${process.env.NEXT_PUBLIC_API_HOST}${url}`;
 };
 
 export const paramsSerializer = (params: any): string => qs.stringify(params, { indices: false });

@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { RecoilRoot } from 'recoil';
 
 import FilterRadiusPage from './radius.page';
 
@@ -9,7 +10,9 @@ jest.mock('@/components/filter/LocationInformation', () => ({
 
 describe('FilterRadiusPage', () => {
   const renderFilterRadiusPage = () => render((
-    <FilterRadiusPage />
+    <RecoilRoot>
+      <FilterRadiusPage />
+    </RecoilRoot>
   ));
 
   it('"거리를 설정해주세요" 문구가 나타나야만 한다', () => {

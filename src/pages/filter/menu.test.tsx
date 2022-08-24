@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { RecoilRoot } from 'recoil';
 
 import FilterMenuPage from './menu.page';
 
@@ -9,7 +10,9 @@ jest.mock('@/components/filter/LocationInformation', () => ({
 
 describe('FilterMenuPage', () => {
   const renderFilterMenuPage = () => render((
-    <FilterMenuPage />
+    <RecoilRoot>
+      <FilterMenuPage />
+    </RecoilRoot>
   ));
 
   it('"메뉴를 선택해주세요"문구가 나타나야만 한다', () => {

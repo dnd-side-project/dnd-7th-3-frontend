@@ -8,6 +8,7 @@ import RoundItem from './RoundItem';
 describe('RoundItem', () => {
   const handleSelected = jest.fn();
   const roundName = '16강';
+  const round = 16;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -16,6 +17,7 @@ describe('RoundItem', () => {
   const renderRoundItem = () => render((
     <MockTheme>
       <RoundItem
+        value={round}
         name={roundName}
         selectedRound={given.selectedRound}
         onSelected={handleSelected}
@@ -24,8 +26,8 @@ describe('RoundItem', () => {
   ));
 
   context('selectedRound가 존재하는 경우', () => {
-    context('"name"과 "selectedRound"가 일치하는 경우', () => {
-      given('selectedRound', () => roundName);
+    context('"value"와 "selectedRound"가 일치하는 경우', () => {
+      given('selectedRound', () => round);
 
       it(`border 색상이 "${lightTheme.main400}"이어야만 하며, text 색상은 "${lightTheme.main400}"이어야만 한다`, () => {
         renderRoundItem();
@@ -37,8 +39,8 @@ describe('RoundItem', () => {
       });
     });
 
-    context('"name"과 "selectedRound"가 일치하지 않는 경우', () => {
-      given('selectedRound', () => '4강');
+    context('"value"와 "selectedRound"가 일치하지 않는 경우', () => {
+      given('selectedRound', () => 4);
 
       it('opacity 속성이 "0.6"이어야만 한다', () => {
         renderRoundItem();
@@ -68,7 +70,7 @@ describe('RoundItem', () => {
 
       fireEvent.click(screen.getByText(roundName));
 
-      expect(handleSelected).toBeCalledWith(roundName);
+      expect(handleSelected).toBeCalledWith(round);
     });
   });
 });
