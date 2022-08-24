@@ -1,4 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { RecoilRoot } from 'recoil';
+
+import { foodWorldCupFormState } from '@/recoil/foodFilter/atom';
+import RecoilObserver from '@/test/RecoilObserver';
 
 import FilterItems from './FilterItems';
 
@@ -10,7 +14,10 @@ describe('FilterItems', () => {
   });
 
   const renderFilterItems = () => render((
-    <FilterItems onChange={handleChange} />
+    <RecoilRoot>
+      <RecoilObserver node={foodWorldCupFormState} onChange={handleChange} />
+      <FilterItems />
+    </RecoilRoot>
   ));
 
   describe('반경 slider를 조절한다', () => {
@@ -24,7 +31,13 @@ describe('FilterItems', () => {
         clientX: 14,
       });
 
-      expect(handleChange).toBeCalled();
+      expect(handleChange).toBeCalledWith({
+        food: [],
+        latitude: null,
+        longitude: null,
+        radius: 100,
+        round: null,
+      });
     });
   });
 });

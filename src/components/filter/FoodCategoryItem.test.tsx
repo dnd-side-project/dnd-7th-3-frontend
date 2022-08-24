@@ -17,6 +17,7 @@ describe('FoodCategoryItem', () => {
     <MockTheme>
       <FoodCategoryItem
         emoji="🍚"
+        value="한식"
         name={foodName}
         isSelected={given.isSelected}
         onSelected={handleSelected}

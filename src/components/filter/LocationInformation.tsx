@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useGeolocation } from 'react-use';
 
 import styled from '@emotion/styled';
+import { useSetRecoilState } from 'recoil';
 
+import { foodWorldCupFormState } from '@/recoil/foodFilter/atom';
 import { captionFont } from '@/styles/fontStyles';
 import { checkNumNull, emptyAThenB } from '@/utils/utils';
 
@@ -11,16 +13,25 @@ import LocationDotIcon from '../../assets/icons/location.svg';
 function LocationInformation() {
   const geolocation = useGeolocation();
   const [currentLocation, setCurrentLocation] = useState<string>('');
+  const setFoodWorldCupForm = useSetRecoilState(foodWorldCupFormState);
 
   useEffect(() => {
-    if (geolocation.loading) {
+    const { loading, latitude, longitude } = geolocation;
+
+    if (loading) {
       setCurrentLocation('로딩중...');
       return;
     }
 
-    naver.maps.Service.reverseGeocode({
+    setFoodWorldCupForm((prev) => ({
+      ...prev,
+      latitude,
+      longitude,
+    }));
+
+    naver?.maps?.Service?.reverseGeocode({
       coords: new naver
-        .maps.LatLng(checkNumNull(geolocation.latitude), checkNumNull(geolocation.longitude)),
+        .maps.LatLng(checkNumNull(latitude), checkNumNull(longitude)),
     }, (status, response) => {
       if (status !== naver.maps.Service.Status.OK) {
         setCurrentLocation('');

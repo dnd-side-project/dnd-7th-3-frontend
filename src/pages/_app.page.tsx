@@ -27,7 +27,6 @@ function MyApp({ Component: AppComponent, pageProps }: AppPropsWithLayout) {
       queries: {
         retry: false,
         refetchOnWindowFocus: false,
-        suspense: true,
       },
     },
   }));

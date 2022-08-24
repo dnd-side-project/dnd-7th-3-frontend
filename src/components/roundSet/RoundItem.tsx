@@ -9,13 +9,16 @@ import AnimatedCheckboxIcon from '../common/AnimatedCheckboxIcon';
 
 interface RoundItemProps{
   name: string;
-  selectedRound?: string;
-  onSelected: (name: string)=>void;
+  value: number;
+  selectedRound: number | null;
+  onSelected: (round: number) => void;
 }
 
-function RoundItem({ name, selectedRound, onSelected }:RoundItemProps) {
-  const handleSelect = () => onSelected(name);
-  const isSelected = selectedRound === name;
+function RoundItem({
+  name, selectedRound, value, onSelected,
+}:RoundItemProps) {
+  const handleSelect = () => onSelected(value);
+  const isSelected = selectedRound === value;
 
   return (
     <RoundItemWrapper
@@ -33,7 +36,7 @@ function RoundItem({ name, selectedRound, onSelected }:RoundItemProps) {
 
 export default memo(RoundItem);
 
-const RoundItemWrapper = styled.div<{ isSelected: boolean; selectedRound?: string; }>`
+const RoundItemWrapper = styled.div<{ isSelected: boolean; selectedRound: number | null; }>`
   ${subHead2Font};
   cursor: pointer;
   user-select: none;
