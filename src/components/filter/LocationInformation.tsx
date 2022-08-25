@@ -1,25 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useGeolocation } from 'react-use';
 
 import styled from '@emotion/styled';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 
+import { currentAddressState } from '@/recoil/currentLocation/atom';
 import { foodWorldCupFormState } from '@/recoil/foodFilter/atom';
 import { captionFont } from '@/styles/fontStyles';
-import { checkNumNull, emptyAThenB } from '@/utils/utils';
+import { emptyAThenB } from '@/utils/utils';
 
 import LocationDotIcon from '../../assets/icons/location.svg';
 
 function LocationInformation() {
   const geolocation = useGeolocation();
-  const [currentLocation, setCurrentLocation] = useState<string>('');
-  const setFoodWorldCupForm = useSetRecoilState(foodWorldCupFormState);
+  const [currentAddress, setCurrentAddress] = useRecoilState(currentAddressState);
+  const [foodWorldCupForm, setFoodWorldCupForm] = useRecoilState(foodWorldCupFormState);
 
   useEffect(() => {
     const { loading, latitude, longitude } = geolocation;
 
+    if (foodWorldCupForm.latitude && foodWorldCupForm.longitude) {
+      return;
+    }
+
     if (loading) {
-      setCurrentLocation('로딩중...');
+      setCurrentAddress('로딩중...');
+      return;
+    }
+
+    if (!latitude || !longitude) {
+      setCurrentAddress('');
       return;
     }
 
@@ -31,23 +41,23 @@ function LocationInformation() {
 
     naver?.maps?.Service?.reverseGeocode({
       coords: new naver
-        .maps.LatLng(checkNumNull(latitude), checkNumNull(longitude)),
+        .maps.LatLng(latitude, longitude),
     }, (status, response) => {
       if (status !== naver.maps.Service.Status.OK) {
-        setCurrentLocation('');
+        setCurrentAddress('');
         return;
       }
 
       const { v2: { address } } = response;
 
-      setCurrentLocation(emptyAThenB(address.jibunAddress, address.roadAddress));
+      setCurrentAddress(emptyAThenB(address.jibunAddress, address.roadAddress));
     });
   }, [geolocation]);
 
   return (
     <LocationWrapper>
       <LocationDotIcon />
-      <div>{emptyAThenB('위치정보없음', currentLocation)}</div>
+      <div>{emptyAThenB('위치정보없음', currentAddress)}</div>
     </LocationWrapper>
   );
 }

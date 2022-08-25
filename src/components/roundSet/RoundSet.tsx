@@ -1,10 +1,14 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useUnmount } from 'react-use';
 
 import styled from '@emotion/styled';
-import { useRecoilState } from 'recoil';
+import { useRouter } from 'next/router';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import Button from '@/components/common/Button';
+import useFetchFoodWorldCup from '@/hooks/api/useFetchFoodWorldCup';
 import { foodWorldCupFormState } from '@/recoil/foodFilter/atom';
+import { worldCupState } from '@/recoil/worldCup/atom';
 import { body1Font, heading2Font } from '@/styles/fontStyles';
 
 import RoundItem from './RoundItem';
@@ -16,12 +20,36 @@ const rounds = [
 ];
 
 function RoundSet() {
-  const [{ round }, setFoodWorldCupForm] = useRecoilState(foodWorldCupFormState);
+  const router = useRouter();
+  const [enabled, setEnabled] = useState<boolean>(false);
+  const [foodWorldCupForm, setFoodWorldCupForm] = useRecoilState(foodWorldCupFormState);
+  const setWorldCupState = useSetRecoilState(worldCupState);
+
+  const { data, isFetching, isFetched } = useFetchFoodWorldCup(foodWorldCupForm, enabled);
+
+  const onClick = () => setEnabled(true);
 
   const onSelectedRound = useCallback((selectedRound: number) => setFoodWorldCupForm((prev) => ({
     ...prev,
     round: selectedRound,
   })), []);
+
+  const { round } = foodWorldCupForm;
+
+  useEffect(() => {
+    if (isFetching) {
+      setEnabled(false);
+    }
+  }, [isFetching]);
+
+  useEffect(() => {
+    if (isFetched) {
+      setWorldCupState(data);
+      router.push('/world-cup');
+    }
+  }, [isFetched, data]);
+
+  useUnmount(() => setEnabled(false));
 
   return (
     <>
@@ -41,7 +69,9 @@ function RoundSet() {
         </RoundItemsWrapper>
       </RoundSetWrapper>
       {round && (
-        <Button type="button">게임 시작</Button>
+        <Button type="button" onClick={onClick} disabled={isFetching}>
+          {isFetching ? '로딩중...' : '게임 시작'}
+        </Button>
       )}
     </>
   );

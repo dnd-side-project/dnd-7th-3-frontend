@@ -18,11 +18,7 @@ const radiusSteps = [
   { key: 5000, name: '5km' },
 ];
 
-interface FilterItemsProps {
-  onChange?: () => void;
-}
-
-function FilterItems({ onChange }: FilterItemsProps) {
+function FilterItems() {
   const [{ radius }, setFoodWorldCupForm] = useRecoilState(foodWorldCupFormState);
 
   const handleChange = useCallback((value: number) => {
@@ -30,7 +26,6 @@ function FilterItems({ onChange }: FilterItemsProps) {
       ...prev,
       radius: radiusSteps[value].key,
     }));
-    onChange?.();
   }, []);
 
   return (

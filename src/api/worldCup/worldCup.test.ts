@@ -1,4 +1,5 @@
 import { fetchFoodWorldCup } from '@/api/worldCup';
+import FIXTURE_FOOD_WORLD_CUP_ITEM from '@/fixtures/foodWorldCupItem';
 
 import { api } from '..';
 
@@ -11,7 +12,9 @@ describe('worldCup API', () => {
 
   describe('fetchFoodWorldCup', () => {
     beforeEach(() => {
-      (api as jest.Mock).mockReturnValueOnce('mock');
+      (api as jest.Mock).mockReturnValueOnce({
+        documents: [FIXTURE_FOOD_WORLD_CUP_ITEM],
+      });
     });
 
     const params = {
@@ -30,7 +33,7 @@ describe('worldCup API', () => {
         url: '/worldCup',
         params,
       });
-      expect(response).toBe('mock');
+      expect(response).toEqual([FIXTURE_FOOD_WORLD_CUP_ITEM]);
     });
   });
 });

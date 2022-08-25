@@ -12,5 +12,5 @@ export const fetchFoodWorldCup = async (params: FoodWorldCupRequest) => {
     params,
   });
 
-  return response;
+  return response.documents;
 };

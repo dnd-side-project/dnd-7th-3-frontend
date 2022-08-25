@@ -1,4 +1,7 @@
-import { checkNull, checkNumNull, emptyAThenB } from './utils';
+import {
+  checkEmpty,
+  checkNull, checkNumNull, convertToNumber, emptyAThenB,
+} from './utils';
 
 describe('checkNull', () => {
   context('value가 null일 경우', () => {
@@ -54,6 +57,52 @@ describe('emptyAThenB', () => {
       const result = emptyAThenB(b, a);
 
       expect(result).toBe(a);
+    });
+  });
+});
+
+describe('convertToNumber', () => {
+  context('null 또는 undefined인 경우', () => {
+    it('0을 반환해야만 한다', () => {
+      const result = convertToNumber();
+
+      expect(result).toBe(0);
+    });
+  });
+
+  context('숫자가 아닌 문자열인 경우', () => {
+    it('0을 반환해야만 한다', () => {
+      const result = convertToNumber('test');
+
+      expect(result).toBe(0);
+    });
+  });
+
+  context('숫자인 문자열인 경우', () => {
+    it('숫자로 변환된 형태를 반환해야만 한다', () => {
+      const result = convertToNumber('100');
+
+      expect(result).toBe(100);
+    });
+  });
+});
+
+describe('checkEmpty', () => {
+  context('value가 undefined이거나 빈 배열인 경우', () => {
+    it('빈 배열을 반환해야만 한다', () => {
+      const result = checkEmpty();
+
+      expect(result).toEqual([]);
+    });
+  });
+
+  context('value가 undefined이거나 빈 배열이 아닌 경우', () => {
+    const mockArray = ['test', 'test2'];
+
+    it('입력된 값이 반환되어야 한다', () => {
+      const result = checkEmpty(mockArray);
+
+      expect(result).toEqual(mockArray);
     });
   });
 });

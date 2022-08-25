@@ -1,4 +1,4 @@
-interface FoodWorldCupDocument {
+export interface FoodWorldCupDocument {
   address_name: string;
   category_group_code: string;
   category_group_name: string;
@@ -28,6 +28,6 @@ interface Meta {
 }
 
 export interface FoodWorldCup {
-  document: FoodWorldCupDocument;
+  documents: FoodWorldCupDocument[];
   meta: Meta;
 }
