@@ -33,8 +33,8 @@ describe('FilterItems', () => {
 
       expect(handleChange).toBeCalledWith({
         food: [],
-        latitude: null,
-        longitude: null,
+        latitude: 0,
+        longitude: 0,
         radius: 100,
         round: null,
       });

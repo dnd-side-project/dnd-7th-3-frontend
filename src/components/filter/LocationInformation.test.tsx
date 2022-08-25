@@ -1,7 +1,8 @@
 import { useGeolocation } from 'react-use';
 
 import { render } from '@testing-library/react';
-import { RecoilRoot } from 'recoil';
+
+import InjectTestingRecoil from '@/test/InjectTestingRecoil';
 
 import LocationInformation from './LocationInformation';
 
@@ -25,8 +26,8 @@ describe('LocationInformation', () => {
 
     (useGeolocation as jest.Mock).mockImplementation(() => ({
       loading: given.loading,
-      latitude: 37.5221,
-      longitude: 127.2313,
+      latitude: given.latitude,
+      longitude: given.longitude,
     }));
 
     const naver = {
@@ -49,10 +50,33 @@ describe('LocationInformation', () => {
   });
 
   const renderLocationInformation = () => render((
-    <RecoilRoot>
+    <InjectTestingRecoil
+      foodWorldCupForm={given.foodWorldCupForm}
+      currentAddress={given.currentAddress}
+    >
+      {/* <RecoilObserver node={currentAddressState} /> */}
       <LocationInformation />
-    </RecoilRoot>
+    </InjectTestingRecoil>
   ));
+
+  context('이미 위치정보가 존재하는 경우', () => {
+    const currentAddress = '광진구 화양동';
+
+    given('currentAddress', () => currentAddress);
+    given('foodWorldCupForm', () => ({
+      food: [],
+      latitude: 39,
+      longitude: 123,
+      radius: 300,
+      round: null,
+    }));
+
+    it('위치정보가 나타나야만 한다', () => {
+      const { container } = renderLocationInformation();
+
+      expect(container).toHaveTextContent(currentAddress);
+    });
+  });
 
   context('위치정보 api가 로딩중인 경우', () => {
     given('loading', () => true);
@@ -64,8 +88,9 @@ describe('LocationInformation', () => {
     });
   });
 
-  context('햔재 위치 정보의 주소가 변환이 정상적이지 않은 경우', () => {
-    given('status', () => 'ERROR');
+  context('위치정보를 불러오지 못한 경우', () => {
+    given('latitude', () => null);
+    given('longitude', () => null);
 
     it('"위치정보없음" 문구가 나타나야만 한다', () => {
       const { container } = renderLocationInformation();
@@ -74,13 +99,28 @@ describe('LocationInformation', () => {
     });
   });
 
-  context('햔재 위치 정보의 주소가 정상적으로 변환된 경우', () => {
-    given('status', () => 'OK');
+  context('위치정보를 불러온 경우', () => {
+    given('latitude', () => 37.5221);
+    given('longitude', () => 127.2313);
 
-    it('변횐된 현재 주소가 나타나야만 한다', () => {
-      const { container } = renderLocationInformation();
+    context('햔재 위치 정보의 주소가 변환이 정상적이지 않은 경우', () => {
+      given('status', () => 'ERROR');
 
-      expect(container).toHaveTextContent(reverseGeocodeResponse.v2.address.jibunAddress);
+      it('"위치정보없음" 문구가 나타나야만 한다', () => {
+        const { container } = renderLocationInformation();
+
+        expect(container).toHaveTextContent('위치정보없음');
+      });
+    });
+
+    context('햔재 위치 정보의 주소가 정상적으로 변환된 경우', () => {
+      given('status', () => 'OK');
+
+      it('변횐된 현재 주소가 나타나야만 한다', () => {
+        const { container } = renderLocationInformation();
+
+        expect(container).toHaveTextContent(reverseGeocodeResponse.v2.address.jibunAddress);
+      });
     });
   });
 });

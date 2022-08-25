@@ -1,13 +1,17 @@
 import { render } from '@testing-library/react';
 import { RecoilRoot } from 'recoil';
 
+import ReactQueryWrapper from '@/test/ReactQueryWrapper';
+
 import RoundSetPage from './index.page';
 
 describe('RoundSetPage', () => {
   const renderRoundSetPage = () => render((
-    <RecoilRoot>
-      <RoundSetPage />
-    </RecoilRoot>
+    <ReactQueryWrapper>
+      <RecoilRoot>
+        <RoundSetPage />
+      </RecoilRoot>
+    </ReactQueryWrapper>
   ));
 
   it('"라운드를 설정해주세요" 문구가 나타나야만 한다', () => {

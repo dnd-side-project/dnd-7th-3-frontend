@@ -1,15 +1,29 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { fetchFoodWorldCup } from '@/api/worldCup';
-import { FoodWorldCupRequest } from '@/api/worldCup/model';
+import { FoodWorldCupForm } from '@/recoil/foodFilter/atom';
+import { checkEmpty, checkNumNull } from '@/utils/utils';
 
-function useFetchFoodWorldCup(request: FoodWorldCupRequest) {
-  const query = useQuery(['foodWorldCup', request], () => fetchFoodWorldCup(request), {
+function useFetchFoodWorldCup(form: FoodWorldCupForm, enabled = false) {
+  const requestForm = {
+    ...form,
+    // TODO - 삭제 테스트용
+    latitude: 37.5429123,
+    longitude: 127.0672672,
+    food: form.food.join('|'),
+    round: checkNumNull(form.round),
+  };
+
+  const query = useQuery(['foodWorldCup', requestForm], () => fetchFoodWorldCup(requestForm), {
     staleTime: Infinity,
     cacheTime: Infinity,
+    enabled,
   });
 
-  return query;
+  return {
+    ...query,
+    data: checkEmpty(query.data),
+  };
 }
 
 export default useFetchFoodWorldCup;

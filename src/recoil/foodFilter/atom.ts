@@ -1,10 +1,10 @@
 /* eslint-disable import/prefer-default-export */
 import { atom } from 'recoil';
 
-type FoodWorldCupForm = {
+export type FoodWorldCupForm = {
   food: string[];
-  latitude: number | null;
-  longitude: number | null;
+  latitude: number;
+  longitude: number;
   radius: number;
   round: number | null;
 }
@@ -13,8 +13,8 @@ export const foodWorldCupFormState = atom<FoodWorldCupForm>({
   key: 'foodWorldCupFormState',
   default: {
     food: [],
-    latitude: null,
-    longitude: null,
+    latitude: 0,
+    longitude: 0,
     radius: 300,
     round: null,
   },
