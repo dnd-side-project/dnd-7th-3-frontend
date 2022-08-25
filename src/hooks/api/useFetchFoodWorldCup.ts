@@ -4,7 +4,7 @@ import { fetchFoodWorldCup } from '@/api/worldCup';
 import { FoodWorldCupForm } from '@/recoil/foodFilter/atom';
 import { checkEmpty, checkNumNull } from '@/utils/utils';
 
-function useFetchFoodWorldCup(form: FoodWorldCupForm, enabled = false) {
+function useFetchFoodWorldCup(form: FoodWorldCupForm, enabled: boolean) {
   const requestForm = {
     ...form,
     // TODO - 삭제 테스트용

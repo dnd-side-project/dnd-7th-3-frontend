@@ -54,4 +54,4 @@ cypress/log
 #env
 .env
 
-test.js
+testData.js
