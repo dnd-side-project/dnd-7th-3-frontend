@@ -31,3 +31,7 @@ export interface FoodWorldCup {
   documents: FoodWorldCupDocument[];
   meta: Meta;
 }
+
+export interface FoodWorldCupItem extends FoodWorldCupDocument {
+  round: number;
+}

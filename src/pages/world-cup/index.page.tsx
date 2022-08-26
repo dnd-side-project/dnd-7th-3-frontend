@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from '@emotion/styled';
+import { useRecoilValue } from 'recoil';
+
+import RunWorldCup from '@/components/worldCup/RunWorldCup';
+import { foodWorldCupFormState } from '@/recoil/foodFilter/atom';
+import { checkNumNull } from '@/utils/utils';
 
 function WorldCupPage() {
-  // TODO
-  // const worldCupItems = useRecoilValue(worldCupState);
-  // const foodWorldCupForm = useRecoilValue(foodWorldCupFormState);
+  const foodWorldCupForm = useRecoilValue(foodWorldCupFormState);
+  const [currentRound, setCurrentRound] = useState<number>(checkNumNull(foodWorldCupForm.round));
 
   return (
     <>
@@ -23,7 +27,10 @@ function WorldCupPage() {
           FINAL
         </div>
       </WorldCupHeader>
-      <WorldCupItem />
+      <RunWorldCup
+        currentRound={currentRound}
+        setCurrentRound={setCurrentRound}
+      />
     </>
   );
 }
@@ -32,18 +39,4 @@ export default WorldCupPage;
 
 const WorldCupHeader = styled.div`
   color: ${({ theme }) => theme.white};
-`;
-
-const WorldCupItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 60vw;
-  max-height: 300px;
-  min-height: 217px;
-  width: 100%;
-  min-width: 300px;
-  background-color: ${({ theme }) => theme.gray900};
-  border-radius: 25px;
 `;

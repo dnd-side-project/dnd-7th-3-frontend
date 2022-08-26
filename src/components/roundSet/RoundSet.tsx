@@ -10,6 +10,7 @@ import useFetchFoodWorldCup from '@/hooks/api/useFetchFoodWorldCup';
 import { foodWorldCupFormState } from '@/recoil/foodFilter/atom';
 import { worldCupState } from '@/recoil/worldCup/atom';
 import { body1Font, heading2Font } from '@/styles/fontStyles';
+import { checkNumNull } from '@/utils/utils';
 
 import RoundItem from './RoundItem';
 
@@ -25,7 +26,9 @@ function RoundSet() {
   const [foodWorldCupForm, setFoodWorldCupForm] = useRecoilState(foodWorldCupFormState);
   const setWorldCupState = useSetRecoilState(worldCupState);
 
-  const { data, isFetching, isFetched } = useFetchFoodWorldCup(foodWorldCupForm, enabled);
+  const {
+    data: foodItems, isFetching, isSuccess,
+  } = useFetchFoodWorldCup(foodWorldCupForm, enabled);
 
   const onClick = () => setEnabled(true);
 
@@ -43,11 +46,14 @@ function RoundSet() {
   }, [isFetching]);
 
   useEffect(() => {
-    if (isFetched) {
-      setWorldCupState(data);
+    if (isSuccess) {
+      setWorldCupState(foodItems.map((item) => ({
+        ...item,
+        round: checkNumNull(round),
+      })));
       router.push('/world-cup');
     }
-  }, [isFetched, data]);
+  }, [isSuccess, foodItems, round]);
 
   useUnmount(() => setEnabled(false));
 

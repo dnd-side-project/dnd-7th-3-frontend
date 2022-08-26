@@ -132,5 +132,6 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': ['error', {
       aspects: ['invalidHref'],
     }],
+    '@next/next/no-img-element': 'off',
   },
 };
