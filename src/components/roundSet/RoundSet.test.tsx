@@ -21,9 +21,9 @@ describe('RoundSet', () => {
     jest.clearAllMocks();
 
     (useFetchFoodWorldCup as jest.Mock).mockImplementation(() => ({
-      data: FIXTURE_FOOD_WORLD_CUP_ITEM,
+      data: [FIXTURE_FOOD_WORLD_CUP_ITEM],
       isFetching: given.isFetching,
-      isFetched: given.isFetched,
+      isSuccess: given.isSuccess,
     }));
 
     (useRouter as jest.Mock).mockImplementation(() => ({
@@ -87,8 +87,8 @@ describe('RoundSet', () => {
     });
   });
 
-  context('데이터 패칭이 완료된 경우', () => {
-    given('isFetched', () => true);
+  context('데이터 패칭에 성공한 경우', () => {
+    given('isSuccess', () => true);
 
     it('router.push가 "/world-cup"과 함께 호출되어야만 한다', () => {
       renderRoundSet();

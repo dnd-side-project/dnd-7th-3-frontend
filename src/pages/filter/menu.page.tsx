@@ -41,6 +41,7 @@ const FilterMenuContentsSection = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  margin-bottom: 89px;
 `;
 
 const Title = styled.h1`

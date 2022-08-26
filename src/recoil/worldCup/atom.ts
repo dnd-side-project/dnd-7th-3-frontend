@@ -1,8 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import { atom } from 'recoil';
 
-import { FoodWorldCupDocument } from '@/models/worldCup';
+import { FoodWorldCupItem } from '@/models/worldCup';
 
-export const worldCupState = atom<FoodWorldCupDocument[]>({
+export const worldCupState = atom<FoodWorldCupItem[]>({
   key: 'worldCupState',
+  default: [],
 });

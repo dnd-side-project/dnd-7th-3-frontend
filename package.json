@@ -37,7 +37,7 @@
     "axios": "^0.27.2",
     "emotion-normalize": "^11.0.1",
     "facepaint": "^1.2.1",
-    "next": "^12.2.2",
+    "next": "^12.2.4",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "5.5.4",
     "qs": "^6.11.0",

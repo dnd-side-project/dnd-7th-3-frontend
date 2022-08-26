@@ -1,7 +1,3 @@
-const withPlugins = require('next-compose-plugins');
-const withPWA = require('next-pwa');
-const runtimeCaching = require('next-pwa/cache');
-
 const isProd = process.env.NODE_ENV === 'production';
 
 /** @type {import('next').NextConfig} */
@@ -31,18 +27,20 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins(
-  [
-    [
-      withPWA,
-      {
-        pwa: {
-          disable: !isProd,
-          dest: 'public',
-          runtimeCaching,
-        },
-      },
-    ],
-  ],
-  nextConfig,
-);
+// FIXME - 핫모듈에서 에러 발생 및 캐싱이 정상적으로 동작하지 않는 이슈 추후에 다시 적용
+// module.exports = withPlugins(
+//   [
+//     [
+//       withPWA,
+//       {
+//         pwa: {
+//           disable: !isProd,
+//           dest: 'public',
+//           runtimeCaching,
+//         },
+//       },
+//     ],
+//   ],
+//   nextConfig,
+// );
+module.exports = nextConfig;
