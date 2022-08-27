@@ -11,12 +11,12 @@ import ExternalLink from '../common/ExternalLink';
 
 interface Props {
   worldCupItem: FoodWorldCupItem;
-  onClick: (selectedId: string) => void;
+  onClick?: (selectedId: string) => void;
   selectedItemId?: string;
 }
 
 function WorldCupItem({ worldCupItem, onClick, selectedItemId }: Props) {
-  const handleClick = () => onClick(worldCupItem.id);
+  const handleClick = () => onClick?.(worldCupItem.id);
 
   const isSelected = selectedItemId === worldCupItem.id;
 
