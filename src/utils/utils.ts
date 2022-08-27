@@ -37,3 +37,5 @@ export const checkEmpty = <T>(value?: T[]): T[] => {
 
   return value;
 };
+
+export const isProd = (env: string): boolean => env === 'production';

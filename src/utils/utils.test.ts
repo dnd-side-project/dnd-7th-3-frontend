@@ -1,6 +1,10 @@
 import {
   checkEmpty,
-  checkNull, checkNumNull, convertToNumber, emptyAThenB,
+  checkNull,
+  checkNumNull,
+  convertToNumber,
+  emptyAThenB,
+  isProd,
 } from './utils';
 
 describe('checkNull', () => {
@@ -103,6 +107,24 @@ describe('checkEmpty', () => {
       const result = checkEmpty(mockArray);
 
       expect(result).toEqual(mockArray);
+    });
+  });
+});
+
+describe('isProd', () => {
+  context('production 환경일 경우', () => {
+    it('true를 반환해야만 한다', () => {
+      const result = isProd('production');
+
+      expect(result).toBeTruthy();
+    });
+  });
+
+  context('production 환경이 아닌 경우', () => {
+    it('false를 반환해야만 한다', () => {
+      const result = isProd('development');
+
+      expect(result).toBeFalsy();
     });
   });
 });

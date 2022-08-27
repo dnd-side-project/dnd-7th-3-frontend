@@ -2,14 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 
 import { fetchFoodWorldCup } from '@/api/worldCup';
 import { FoodWorldCupForm } from '@/recoil/foodFilter/atom';
-import { checkEmpty, checkNumNull } from '@/utils/utils';
+import { checkEmpty, checkNumNull, isProd } from '@/utils/utils';
 
 function useFetchFoodWorldCup(form: FoodWorldCupForm, enabled: boolean) {
   const requestForm = {
     ...form,
-    // TODO - 삭제 테스트용
-    latitude: 37.5429123,
-    longitude: 127.0672672,
+    latitude: isProd(process.env.NODE_ENV) ? form.latitude : 37.5429123,
+    longitude: isProd(process.env.NODE_ENV) ? form.longitude : 127.0672672,
     food: form.food.join('|'),
     round: checkNumNull(form.round),
   };

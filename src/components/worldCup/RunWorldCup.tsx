@@ -103,7 +103,6 @@ function RunWorldCup({ currentRound, setCurrentRound }: RunWorldCupProps) {
         selectedItemId={selectedItemId}
         onClick={onSelectedItem}
       />
-
       {!!selectedItemId && (
         <Button type="button" onClick={onSelect}>
           선택
@@ -117,6 +116,7 @@ export default RunWorldCup;
 
 const RunWorldCupWrapper = styled.div`
   position: relative;
+  margin-top: 23px;
 
   & > div:first-of-type {
     margin-bottom: 15px;
